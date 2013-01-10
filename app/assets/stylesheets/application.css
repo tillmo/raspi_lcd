@@ -61,17 +61,23 @@ a.button:hover {
     background: linear-gradient(top, #3d7a80, #2f5f63);
 }
 
-.output {
+.middle {
+	    vertical-align:middle;
+	    height: 300px;
+}
+#output {
     height: 300px;
     width: 300px;
 	float:left;
-	border:1;
+	border:1px solid;
+	text-align:center;
 }
 
-.buttons {
+#buttons {
     height: 300px;
     width: 300px;
-	float:right;
+	margin-left:350px;
+	border:1px solid;
 }
 
 .up {
