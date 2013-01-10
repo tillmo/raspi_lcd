@@ -16,15 +16,15 @@
      
     /*Step 2: Basic Button Styles*/
     display: block;
-    height: 100px;
-    width: 300px;
+    height: 80px;
+    width: 80px;
     background: #34696f;
     border: 2px solid rgba(33, 68, 72, 0.59);
      
     /*Step 3: Text Styles*/
-    color: rgba(0, 0, 0, 0.55);
+    color: white;
     text-align: center;
-    font: bold 3.2em/100px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font: bold 1.2em/70px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
      
     /*Step 4: Fancy CSS3 Styles*/
     background: -webkit-linear-gradient(top, #34696f, #2f5f63);
@@ -33,10 +33,10 @@
     background: -ms-linear-gradient(top, #34696f, #2f5f63);
     background: linear-gradient(top, #34696f, #2f5f63);
      
-    -webkit-border-radius: 50px;
-    -khtml-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
      
     -webkit-box-shadow: 0 8px 0 #1b383b;
     -moz-box-shadow: 0 8px 0 #1b383b;
@@ -59,4 +59,8 @@ a.button:hover {
     background: -o-linear-gradient(top, #3d7a80, #2f5f63);
     background: -ms-linear-gradient(top, #3d7a80, #2f5f63);
     background: linear-gradient(top, #3d7a80, #2f5f63);
+}
+
+.up {
+	
 }
