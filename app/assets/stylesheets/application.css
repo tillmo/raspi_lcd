@@ -81,26 +81,31 @@ a.button:hover {
 }
 
 #up {
-    position:absolute
-    left:125px; right:125px; top:10px;  
+    position:absolute;
+    margin-left:125px;
+    margin-top:10px;  
 }
 
 #down {
-    position:absolute
-    left:125px; right:125px; top:290px;  
+    position:absolute;
+    margin-left:125px; 
+    margin-top:290px;  
 }
 
 #right {
-    position:absolute
-    left:290px; right:10px; top:150px;  
+    position:absolute;
+    margin-left:290px; 
+    margin-top:150px;  
 }
 
 #left {
-    position:absolute
-    left:10px; right:290px; top:150px;  
+    position:absolute;
+    margin-left:10px;
+    margin-top:150px;  
 }
 
 #center {
-    position:absolute
-    left:150px; right:150px; top:150px;  
+    position:absolute;
+    margin-left:150px; 
+    margin-top:150px;  
 }
