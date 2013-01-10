@@ -61,6 +61,19 @@ a.button:hover {
     background: linear-gradient(top, #3d7a80, #2f5f63);
 }
 
+.output {
+    height: 300px;
+    width: 300px;
+	float:left;
+	border:1;
+}
+
+.buttons {
+    height: 300px;
+    width: 300px;
+	float:right;
+}
+
 .up {
 	
 }
