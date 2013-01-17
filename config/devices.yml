@@ -1,0 +1,39 @@
+Miele W6000 WPS Primavera Plus:
+  Baumwolle:
+    90°:
+      :duration_in_min: 149
+      :consumption_in_Wh: 2200
+    60°:
+      :duration_in_min: 119
+      :consumption_in_Wh: 1330
+    Eco60°:
+      :duration_in_min: 179
+      :consumption_in_Wh: 820
+  Pflegeleicht:
+    40°:
+      :duration_in_min: 110
+      :consumption_in_Wh: 560
+  Synthetik:
+    30°:
+      :duration_in_min: 56
+      :consumption_in_Wh: 380
+
+Miele T8861 WP Edition 111:
+  Baumwolle:
+    90°:
+      :duration_in_min: 149
+      :consumption_in_Wh: 2200
+    60°:
+      :duration_in_min: 119
+      :consumption_in_Wh: 1330
+    Eco60°:
+      :duration_in_min: 179
+      :consumption_in_Wh: 820
+  Pflegeleicht:
+    40°:
+      :duration_in_min: 110
+      :consumption_in_Wh: 560
+  Synthetik:
+    30°:
+      :duration_in_min: 56
+      :consumption_in_Wh: 380
