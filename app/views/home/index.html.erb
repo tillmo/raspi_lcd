@@ -1,8 +1,19 @@
 <h1>Simulation der Solarwash-Gerätesteuerung</h1>
-
 <div id="output">
 <table>	
-	<tr><td class="middle">output</td></tr>
+  <tr><td class="middle">
+      <table>
+        <%OURDEVICES.each do |name, data|%>
+        <tr>
+          <% if name == session[:device]%>
+            <td><b><%= name %></b></td>
+        <% else%>
+          <td><%= name %></td>
+        <%end%>
+        </tr>
+      <% end %>
+    </table>
+  </td></tr>
 </table>	
 </div>	
 <div id="buttons">
