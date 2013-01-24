@@ -1,7 +1,7 @@
 Solarbuttons::Application.routes.draw do
   get "home/index"
 
-  match "push_button/:dir", :to => "home#push_button"
+  match "/home/:dir", :to => "home#push_button"
 
 
   # The priority is based upon order of creation:

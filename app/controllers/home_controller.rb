@@ -4,6 +4,6 @@ class HomeController < ApplicationController
     session[:device] = OURDEVICES.first[0] if session[:device].blank?
   end
   def push_button
-    render '/home/index'
+    redirect_to '/home/index'
   end
 end
