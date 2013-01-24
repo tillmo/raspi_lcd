@@ -5,7 +5,7 @@
       <table>
         <%OURDEVICES.each do |name, data|%>
         <tr>
-          <% if name == session[:device]%>
+          <% if name == @device[0] %>
             <td><b><%= name %></b></td>
         <% else%>
           <td><%= name %></td>
