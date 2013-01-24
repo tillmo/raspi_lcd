@@ -1,15 +1,8 @@
 Solarbuttons::Application.routes.draw do
   get "home/index"
 
-  get "home/left"
+  match "push_button/:dir", :to => "home#push_button"
 
-  get "home/right"
-
-  get "home/up"
-
-  get "home/down"
-
-  get "home/center"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
