@@ -4,3 +4,4 @@ OURDEVICES = Hash[SETTINGS[:devices].map do |our_name, device_name|
   [our_name, devices[device_name]]
 end]
 NUMBER_OF_DEVICES = OURDEVICES.length
+OURDEVICES_ARRAY = OURDEVICES.to_a
