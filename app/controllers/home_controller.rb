@@ -5,7 +5,7 @@ WAIT_FOR_START = 3
 
 class HomeController < ApplicationController
   def index
-    session[:menu] = 'main_menu' if session[:menu].blank?
+    session[:menu] = MAIN_MENU if session[:menu].blank?
     session[:device] = 0 if session[:device].blank?
     @device = OURDEVICES.to_a[session[:device].to_i]
   end
