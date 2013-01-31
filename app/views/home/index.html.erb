@@ -3,10 +3,10 @@
 <table>	
   <tr><td class="middle">
     <% case session[:device] %>
-      <%= when MAIN_MENU : render :partial => 'main_menu' %>
-      <%= when PROGRAM_SELECTION : render :partial => 'program_selection' %>
-      <%= when TIME_SELECTION : render :partial => 'time_selection' %>
-      <%= when WAIT_FOR_START : render :partial => 'wait_for_start' %>
+      <%= when MAIN_MENU then render :partial => 'main_menu' %>
+      <%= when PROGRAM_SELECTION then render :partial => 'program_selection' %>
+      <%= when TIME_SELECTION then render :partial => 'time_selection' %>
+      <%= when WAIT_FOR_START then render :partial => 'wait_for_start' %>
     <% end %>
   </td></tr>
 </table>	
