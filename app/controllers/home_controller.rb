@@ -8,7 +8,8 @@ class HomeController < ApplicationController
     case params[:dir]
       when 'up' then session[:device] -= 1
       when 'down' then session[:device] += 1
-      end
+    end
+    session[:device] %= NUMBER_OF_DEVICES
     redirect_to '/home/index'
   end
 end
