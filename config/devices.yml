@@ -109,7 +109,7 @@ Miele T8861 WP Edition 111:
   Wolle:
     :duration_in_min: 20
     :consumption_in_Wh: 200
-  BaumwollenHygiene:
+  BaumwolleHygiene:
     Schranktrocken:
       :duration_in_min: 126
       :consumption_in_Wh: 1900
