@@ -17,6 +17,10 @@
    <% end %>
  </table>
  </td>
- <% selection = selection[session[:program][level]][1].to_a %>
+ <% if selection[session[:program][level]].nil? then %>
+   <% selection = 0 %>
+ <% else %>
+   <% selection = selection[session[:program][level]][1].to_a %>
+ <% end %>
  <% end %>
 </tr></table>

@@ -18,7 +18,7 @@ class HomeController < ApplicationController
       when MAIN_MENU then
         case params[:dir]
           when 'up', 'down' then session[:device] += if params[:dir] == 'up' then -1 else 1 end
-                         session[:program] = [0]
+            session[:program] = [0]
           when 'center', 'right' then session[:menu] += 1
           when 'left' then session[:menu] -= 1
         end
@@ -40,7 +40,7 @@ class HomeController < ApplicationController
            then session[:level] -= 1
            else session[:menu] -= 1
            end
-        end           
+       end           
       when TIME_SELECTION then
         case params[:dir]
           when 'center', 'right' then session[:menu] += 1
@@ -50,6 +50,15 @@ class HomeController < ApplicationController
     if session[:menu] < 0 then session[:menu] = 0 end   
     if session[:level] < 0 then session[:level] = 0 end   
     session[:device] %= NUMBER_OF_DEVICES
+
+    if session[:program][session[:level]] < 0 then
+      fragment = ""
+      logger.warn "program-items #{0..session[:program].length-2}"
+      for i in (0..session[:program].length-2) do 
+        fragment << ".to_a[session[:program]["+i.to_s+"]][1]"
+      end
+      session[:program][-1] = eval("@device[1]#{fragment}.length-1")
+    end
     redirect_to '/home/index'
   end
   
