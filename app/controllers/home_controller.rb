@@ -50,19 +50,12 @@ class HomeController < ApplicationController
     if session[:menu] < 0 then session[:menu] = 0 end   
     if session[:level] < 0 then session[:level] = 0 end   
     session[:device] %= NUMBER_OF_DEVICES
-    unless (defined? last_submenu) && session[:program].length == last_submenu then
-      menu_depth = @device[1]
-      for i in (0..session[:program].length-2) do
-        menu_depth = menu_depth.to_a[session[:program][i]][1] 
-      end
-      if session[:program][session[:level]] < 0 then
-        session[:program][-1] = menu_depth.length-1
-      end
-      if session[:program][session[:level]] > menu_depth.length-1 then
-        session[:program][-1] = 0
-      end
-      last_submenu = session[:program].length
-      redirect_to '/home/index'
+    menu_depth = @device[1]
+    for i in (0..session[:program].length-2) do
+      menu_depth = menu_depth.to_a[session[:program][i]][1] 
+    end
+    session[:program][-1] %= menu_depth.length 
+    redirect_to '/home/index'
     end
   end
   
