@@ -56,7 +56,6 @@ class HomeController < ApplicationController
     end
     session[:program][-1] %= menu_depth.length 
     redirect_to '/home/index'
-    end
   end
   
   private
