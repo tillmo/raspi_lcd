@@ -1,0 +1,11 @@
+<table>
+  <%OURDEVICES.each do |name, data|%>
+  <tr>
+    <% if name == @device[0] %>
+    <td><b><%= name %></b></td>
+      <% else%>
+      <td><%= name %></td>
+     <%end%>
+   </tr>
+   <% end %>
+</table>
