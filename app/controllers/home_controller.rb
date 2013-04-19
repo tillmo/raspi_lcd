@@ -53,15 +53,27 @@ class HomeController < ApplicationController
       when TIME_SELECTION then
         case params[:dir]
           when 'right' then session[:tindex]+=1
+            if session[:tindex] > 3 then
+              session[:menu] += 1 
+              session[:tindex] = 3
+            end
           when 'left' then session[:tindex]-=1
+            if session[:tindex] < 0 then 
+              session[:menu] -= 1 
+              session[:tindex] = 0
+            end
           when 'center' then session[:menu] += 1
           when 'up', 'down' then 
             session[:time][session[:tindex]] += if params[:dir] == 'up' then 1 else -1 end
-            if session[:tindex] == 0 then session[:time][session[:tindex]] %= 3 end
-            if session[:tindex] == 1 then session[:time][session[:tindex]] %= 10 end
-            if session[:tindex] == 2 then session[:time][session[:tindex]] %= 6 end
-            if session[:tindex] == 3 then session[:time][session[:tindex]] %= 10 end
-        end
+            case session[:tindex]
+              when 0 then session[:time][session[:tindex]] %= 3
+              when 1 then session[:time][session[:tindex]] %= if session[:time][0] == 2 then 4 else 10 end
+              when 2 then session[:time][session[:tindex]] %= 6
+              when 3 then session[:time][session[:tindex]] %= 10
+              end
+          end
+      when WAIT_FOR_START then
+        if params[:dir] == 'left' then session[:menu] -= 1 else true end
       end
 
     if session[:menu] < 0 then session[:menu] = 0 end   
