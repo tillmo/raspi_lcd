@@ -9,6 +9,8 @@ class HomeController < ApplicationController
     session[:device] = 0 if session[:device].blank?
     session[:program] = [0] if session[:program].blank?
     session[:level] = 0 if session[:level].blank?
+    session[:time] = [1, 2, 3, 4] if session[:time].blank?
+    session[:tindex] = 0 if session[:tindex].blank?
 
     @device = OURDEVICES.to_a[session[:device].to_i]
   end
@@ -43,10 +45,18 @@ class HomeController < ApplicationController
        end           
       when TIME_SELECTION then
         case params[:dir]
-          when 'center', 'right' then session[:menu] += 1
-          when 'left' then session[:menu] -= 1
+          when 'right' then session[:tindex]+=1
+          when 'left' then session[:tindex]-=1
+          when 'center' then session[:menu] += 1
+          when 'up', 'down' then 
+            session[:time][session[:tindex]] += if params[:dir] == 'up' then 1 else -1 end
+            if session[:tindex] == 0 then session[:time][session[:tindex]] %= 3 end
+            if session[:tindex] == 1 then session[:time][session[:tindex]] %= 10 end
+            if session[:tindex] == 2 then session[:time][session[:tindex]] %= 6 end
+            if session[:tindex] == 3 then session[:time][session[:tindex]] %= 10 end
         end
-    end
+      end
+
     if session[:menu] < 0 then session[:menu] = 0 end   
     if session[:level] < 0 then session[:level] = 0 end   
     session[:device] %= NUMBER_OF_DEVICES
