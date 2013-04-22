@@ -11,12 +11,8 @@ class HomeController < ApplicationController
     session[:level] = 0 if session[:level].blank?
     session[:tindex] = 0 if session[:tindex].blank?
     if session[:time].blank? then
-      session[:time] = []
-      %w(hour min).each do |unit|
-        session[:time] << Time.now.send(unit).to_s.split('')
-        if session[:time].flatten!.length.odd? then session[:time].insert(-2,0) end
-        session[:time].map! { |i| i.to_i }
-      end
+      session[:time] = Time.now.strftime("%H%M").split('')
+      session[:time].map! { |i| i.to_i }
     end
 
     @device = OURDEVICES.to_a[session[:device].to_i]
