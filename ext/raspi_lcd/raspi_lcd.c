@@ -5,8 +5,8 @@
 #include <ruby.h>
 /* include lcd controller with code, 
    since we want to include it in the library */
-#include <../lcd.h>
-#include <../lcd.c>
+#include <../RaspiLCD-V0.9.0/lcd.h>
+#include <../RaspiLCD-V0.9.0/lcd.c>
 
 
 static VALUE r_LCD_ClearScreen(VALUE self)
@@ -108,26 +108,26 @@ static VALUE r_LCD_WriteFramebuffer(VALUE self)
 
 
 /*
- * Module raspi_lcd_ruby
+ * Module raspi_lcd
  */
 VALUE m;
-void Init_raspi_lcd_ruby() {
-    m = rb_define_module("RaspiLCDRuby");
-    rb_define_module_function(m,"LCD_ClearScreen",r_LCD_ClearScreen, 0);
-    rb_define_module_function(m,"LCD_SetPenColor",r_LCD_SetPenColor, 1);
-    rb_define_module_function(m,"LCD_SetFillColor",r_LCD_SetFillColor, 1);
-    rb_define_module_function(m,"LCD_SetFont",r_LCD_SetFont, 1);
-    rb_define_module_function(m,"LCD_SetContrast",r_LCD_SetContrast, 1);
+void Init_raspi_lcd() {
+    m = rb_define_module("RaspiLCD");
+    rb_define_module_function(m,"clear_screen",r_LCD_ClearScreen, 0);
+    rb_define_module_function(m,"set_pen_color",r_LCD_SetPenColor, 1);
+    rb_define_module_function(m,"set_fill_color",r_LCD_SetFillColor, 1);
+    rb_define_module_function(m,"set_font",r_LCD_SetFont, 1);
+    rb_define_module_function(m,"set_contrast",r_LCD_SetContrast, 1);
 
-    rb_define_module_function(m,"LCD_PutPixel",r_LCD_PutPixel, 3);
-    rb_define_module_function(m,"LCD_DrawLine",r_LCD_DrawLine, 4);
-    rb_define_module_function(m,"LCD_DrawCircle",r_LCD_DrawCircle, 3);
-    rb_define_module_function(m,"LCD_DrawEllipse",r_LCD_DrawEllipse, 4);
-    rb_define_module_function(m,"LCD_DrawRect",r_LCD_DrawRect, 5);
-    rb_define_module_function(m,"LCD_PrintXY",r_LCD_PrintXY, 3);
-    rb_define_module_function(m,"LCD_DrawBitmap",r_LCD_DrawBitmap, 3);
+    rb_define_module_function(m,"put_pixel",r_LCD_PutPixel, 3);
+    rb_define_module_function(m,"draw_line",r_LCD_DrawLine, 4);
+    rb_define_module_function(m,"draw_circle",r_LCD_DrawCircle, 3);
+    rb_define_module_function(m,"draw_ellipse",r_LCD_DrawEllipse, 4);
+    rb_define_module_function(m,"draw_rect",r_LCD_DrawRect, 5);
+    rb_define_module_function(m,"print_xy",r_LCD_PrintXY, 3);
+    rb_define_module_function(m,"draw_bitmap",r_LCD_DrawBitmap, 3);
 
-    rb_define_module_function(m,"LCD_Init",r_LCD_Init, 0);
-    rb_define_module_function(m,"LCD_WriteFramebuffer",r_LCD_WriteFramebuffer, 0);
+    rb_define_module_function(m,"init",r_LCD_Init, 0);
+    rb_define_module_function(m,"write_framebuffer",r_LCD_WriteFramebuffer, 0);
 }
 
