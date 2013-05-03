@@ -1,6 +1,6 @@
 Ruby bindings for the raspberry pi LCD interface
 
-This gem provides a module RaspiLCD, with the following methods:
+### This gem provides a module RaspiLCD, with the following methods:
 
    clear_screen
    set_pen_color(color)
