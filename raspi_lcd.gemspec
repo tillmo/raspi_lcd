@@ -9,6 +9,5 @@ Gem::Specification.new do |s|
   s.files       = Dir.glob('lib/**/*.rb') +
                   Dir.glob('ext/**/*.{c,h,rb}')
   s.extensions  = ['ext/raspi_lcd/extconf.rb']
-  s.executables = ['hola']
   s.homepage    = 'https://github.com/tillmo/raspi_lcd'
 end

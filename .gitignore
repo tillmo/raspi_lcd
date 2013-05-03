@@ -7,3 +7,7 @@
 
 # Ignore Emacs Backup-Files
 *~
+
+*.gem
+ext/**/*.o
+ext/**/*.so
