@@ -1,3 +1,4 @@
+Wann soll die Maschie spätestens fertig sein?<br>
 <% (0..session[:time].length-1).each do |digit| %>
 <% if digit == 2 %>
 :
@@ -5,8 +6,9 @@
 <% if digit == session[:tindex] then %>
 <b>
 <% end %>
-<%=session[:time][digit]=%>
+ <%=session[:time][digit]=%> 
 <% if digit == session[:tindex] then %>
 </b>
 <% end %>
 <% end %>
+ h
