@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Till Mossakowski"]
   s.email       = 'till@communtu.org'
   s.files       = Dir.glob('lib/**/*.rb') +
-                  Dir.glob('ext/**/*.{c,h,rb}')
+                  Dir.glob('ext/**/*.{c,h,rb,inc}')
   s.extensions  = ['ext/raspi_lcd/extconf.rb']
   s.homepage    = 'https://github.com/tillmo/raspi_lcd'
 end
