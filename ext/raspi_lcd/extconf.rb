@@ -1,2 +1,2 @@
 require 'mkmf'
-create_makefile("raspi_lcd/rapsi_lcd")
+create_makefile('raspi_lcd/raspi_lcd')
