@@ -7,6 +7,8 @@
    since we want to include it in the library */
 #include <../RaspiLCD-V0.9.0/lcd.h>
 #include <../RaspiLCD-V0.9.0/lcd.c>
+#include <../RaspiLCD-V0.9.0/bcm2835.h>
+#include <../RaspiLCD-V0.9.0/bcm2835.c>
 
 
 static VALUE r_LCD_ClearScreen(VALUE self)
