@@ -19,3 +19,9 @@ This gem provides a module RaspiLCD, with the following methods:
       init()
       write_framebuffer()
 
+      raspi_lcd_hw_init()
+      update_buttons()
+      get_raspberry_hw_revision()
+      spi_putc(d)
+      set_backlight(light)
+      sleep_ms(ms)

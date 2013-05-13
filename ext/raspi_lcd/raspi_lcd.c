@@ -9,6 +9,8 @@
 #include <../RaspiLCD-V0.9.0/lcd.c>
 #include <../RaspiLCD-V0.9.0/bcm2835.h>
 #include <../RaspiLCD-V0.9.0/bcm2835.c>
+#include <../RaspiLCD-V0.9.0/raspilcd.h>
+#include <../RaspiLCD-V0.9.0/raspilcd.c>
 
 
 static VALUE r_LCD_ClearScreen(VALUE self)
@@ -107,6 +109,45 @@ static VALUE r_LCD_WriteFramebuffer(VALUE self)
   return Qnil;
 }
 
+static VALUE r_RaspiLcdHwInit(VALUE self)
+{
+  int i;
+  i = RaspiLcdHwInit();
+  return INT2FIX(i);
+}
+
+static VALUE r_UpdateButtons(VALUE self)
+{
+  UpdateButtons();
+  return Qnil;
+}
+
+static VALUE r_GetRaspberryHwRevision(VALUE self)
+{
+  int r;
+  r = GetRaspberryHwRevision();
+  return INT2FIX(r);
+}
+
+static VALUE r_SpiPutc(VALUE self, VALUE d)
+{
+  SpiPutc(NUM2CHR(d));
+  return Qnil;
+}
+
+static VALUE r_SetBacklight(VALUE self, VALUE light)
+{
+  SetBacklight(FIX2INT(light));
+  return Qnil;
+}
+
+static VALUE r_SleepMs(VALUE self, VALUE ms)
+{
+  SleepMs(FIX2INT(ms));
+  return Qnil;
+}
+
+
 
 
 /*
@@ -131,5 +172,13 @@ void Init_raspi_lcd() {
 
     rb_define_module_function(m,"init",r_LCD_Init, 0);
     rb_define_module_function(m,"write_framebuffer",r_LCD_WriteFramebuffer, 0);
+    rb_define_module_function(m,"raspi_lcd_hw_init",r_RaspiLcdHwInit, 0);
+    rb_define_module_function(m,"update_buttons",r_UpdateButtons, 0);
+    rb_define_module_function(m,"get_raspberry_hw_revision",r_GetRaspberryHwRevision, 0);
+    rb_define_module_function(m,"spi_putc",r_SpiPutc, 1);
+    rb_define_module_function(m,"set_backlight",r_SetBacklight, 1);
+    rb_define_module_function(m,"sleep_ms",r_SleepMs, 1);
+
+
 }
 
