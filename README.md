@@ -25,3 +25,5 @@ This gem provides a module RaspiLCD, with the following methods:
       spi_putc(d)
       set_backlight(light)
       sleep_ms(ms)
+      button(b)         # b can be :up, :left, :center, :right, :down 
+      button_pressed(b) # b can be :up, :left, :center, :right, :down 

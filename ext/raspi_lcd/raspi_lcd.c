@@ -147,6 +147,51 @@ static VALUE r_SleepMs(VALUE self, VALUE ms)
   return Qnil;
 }
 
+static VALUE r_Button(VALUE self, VALUE button)
+{
+  int res;
+  int sym = SYM2ID(button);
+  if(sym==rb_intern("up")) 
+     res = BUTTON_UP;
+  else if(sym==rb_intern("left")) 
+     res = BUTTON_LEFT;
+  else if(sym==rb_intern("center")) 
+     res = BUTTON_CENTER;
+  else if(sym==rb_intern("right")) 
+     res = BUTTON_RIGHT;
+  else if(sym==rb_intern("down")) 
+     res = BUTTON_DOWN;
+  else res = -1;
+  if(res==-1) {
+    rb_raise(rb_eStandardError,"only up, left, center, right and down are valid parameters");
+    return Qnil;
+    }
+  else
+    return res ? Qtrue : Qfalse;
+}
+
+static VALUE r_ButtonPressed(VALUE self, VALUE button)
+{
+  int res;
+  int sym = SYM2ID(button);
+  if(sym==rb_intern("up")) 
+     res = BUTTON_PRESSED_UP;
+  else if(sym==rb_intern("left")) 
+     res = BUTTON_PRESSED_LEFT;
+  else if(sym==rb_intern("center")) 
+     res = BUTTON_PRESSED_CENTER;
+  else if(sym==rb_intern("right")) 
+     res = BUTTON_PRESSED_RIGHT;
+  else if(sym==rb_intern("down")) 
+     res = BUTTON_PRESSED_DOWN;
+  else res = -1;
+  if(res==-1) {
+    rb_raise(rb_eStandardError,"only up, left, center, right and down are valid parameters");
+    return Qnil;
+    }
+  else
+    return res ? Qtrue : Qfalse;
+}
 
 
 
@@ -178,7 +223,7 @@ void Init_raspi_lcd() {
     rb_define_module_function(m,"spi_putc",r_SpiPutc, 1);
     rb_define_module_function(m,"set_backlight",r_SetBacklight, 1);
     rb_define_module_function(m,"sleep_ms",r_SleepMs, 1);
-
-
+    rb_define_module_function(m,"button",r_Button, 1);
+    rb_define_module_function(m,"button_pressed",r_ButtonPressed, 1);
 }
 
