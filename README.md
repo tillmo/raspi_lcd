@@ -16,14 +16,16 @@ This gem provides a module RaspiLCD, with the following methods:
       print_xy(x,y,string)
       draw_bitmap(x,y,bmp)
 
-      init()
-      write_framebuffer()
+      init
+      write_framebuffer
 
-      raspi_lcd_hw_init()
-      update_buttons()
-      get_raspberry_hw_revision()
+      raspi_lcd_hw_init
+      update_buttons
+      get_raspberry_hw_revision
       spi_putc(d)
       set_backlight(light)
       sleep_ms(ms)
       button(b)         # b can be :up, :left, :center, :right, :down 
       button_pressed(b) # b can be :up, :left, :center, :right, :down 
+      buttons
+      buttons_pressed

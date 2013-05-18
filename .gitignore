@@ -11,3 +11,4 @@
 *.gem
 ext/**/*.o
 ext/**/*.so
+.project

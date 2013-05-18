@@ -163,7 +163,7 @@ static VALUE r_Button(VALUE self, VALUE button)
      res = BUTTON_DOWN;
   else res = -1;
   if(res==-1) {
-    rb_raise(rb_eStandardError,"only up, left, center, right and down are valid parameters");
+    rb_raise(rb_eStandardError,"only :up, :left, :center, :right and :down are valid parameters");
     return Qnil;
     }
   else
@@ -186,7 +186,7 @@ static VALUE r_ButtonPressed(VALUE self, VALUE button)
      res = BUTTON_PRESSED_DOWN;
   else res = -1;
   if(res==-1) {
-    rb_raise(rb_eStandardError,"only up, left, center, right and down are valid parameters");
+    rb_raise(rb_eStandardError,"only :up, :left, :center, :right and :down are valid parameters");
     return Qnil;
     }
   else
