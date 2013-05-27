@@ -53,7 +53,7 @@ def demo_vector
 end
 
 
-def demo_bubbles
+def demo_bubbles(demo_mem)
 	clear_screen
 	set_pen_color(1)
 	
@@ -110,7 +110,7 @@ end
 contrast = 9;
 backlight = 1;
 		
-printf("RaspiLCD Demo V0.9 by Martin Steppuhn, adapted to Ruby")
+puts("RaspiLCD Demo V0.9 by Martin Steppuhn, adapted to Ruby")
 printf("RaspberryHwRevision=%i\r\n",get_raspberry_hw_revision)
 	
 if !raspi_lcd_hw_init 
@@ -126,25 +126,30 @@ demo_mem = [0]*256
 demo_bubbles_init(demo_mem)
 	
 demo_count = 0
+clear_screen
+set_pen_color(1)
+set_font(1)
+
 while true do
 	demo_count+=1
 	sleep_ms(100)
 	update_buttons
-	#	printf("Buttons: %02X (%02X) contrast=%i backlight=%u\r\n",Button,ButtonPressed,contrast,backlight)
+        bp = buttons_pressed
+        b = buttons
+		printf("Buttons: %s (pressed: %s) contrast=%i backlight=%u demo_view=%i\r\n",b,bp,contrast,backlight,demo_view)
 
 	# if (demo_count & 3) == 0) then LogCpuTemperature end
-	b = buttons_pressed
-	if b.member?(:up) or b.member?(:down)
-		if b.member?(:up) and (contrast < 20) then contrast+=1 end
-		if b.member?(:down) and (contrast > 0) then  contrast-=1 end 
+	if bp.member?(:up) or bp.member?(:down)
+		if bp.member?(:up) and (contrast < 20) then contrast+=1 end
+		if bp.member?(:down) and (contrast > 0) then  contrast-=1 end 
 		set_contrast(contrast) 
 	end
-	if b.member?(:center)
-		backlight = backlight ? 0 : 1   # Toggle backlight
+	if bp.member?(:center)
+		backlight = backlight==1 ? 0 : 1   # Toggle backlight
 	        set_backlight(backlight)	# Write to Hardware
 	end		
-	if b.member?(:left) and demo_view then demo_view-=1 end
-	if b.member?(:right) and (demo_view < 6) then demo_view+=1 end		
+	if bp.member?(:left) and demo_view>0 then demo_view-=1 end
+	if bp.member?(:right) and (demo_view < 6) then demo_view+=1 end		
 
 	if    demo_view == 0 then demo_logo
 	# elsif demo_view == 1 then if (demo_count & 3) == 0 then demo_CpuTemperature end
