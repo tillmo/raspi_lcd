@@ -1,5 +1,9 @@
 Ruby bindings for the raspberry pi LCD interface
 
+Known issues:
+- one needs to be root in order to run all this
+- it seems that one needs to execute ext/RaspiLCD-V0.9.0/raspilcd first in order to see something on the display (you can quit raspilcd with ctrl+c immediately)
+
 This gem provides a module RaspiLCD, with the following methods:
 
       clear_screen
