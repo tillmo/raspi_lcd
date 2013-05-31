@@ -57,25 +57,25 @@ def demo_bubbles(demo_mem)
 	clear_screen
 	set_pen_color(1)
 	
-	if(demo_mem[200])	then if(demo_mem[201] > 16)	then demo_mem[201]-=1 else	demo_mem[200] = 0 end
+	if(demo_mem[200]!=0)	then if(demo_mem[201] > 16)	then demo_mem[201]-=1 else	demo_mem[200] = 0 end
 		else		     if(demo_mem[201] <48)	then demo_mem[201]+=1 else	demo_mem[200] = 1 end
         end
-	demo_mem[202] = ((63 - demo_mem[201]) < demo_mem[201]) ? (63 - demo_mem[201]) : demo_mem[201] 
-	demo_mem[202] = (demo_mem[202] > 20) ? 20 : demo_mem[202] 
+	demo_mem[202] = ( ((63 - demo_mem[201]) < demo_mem[201]) ? (63 - demo_mem[201]) : demo_mem[201] )
+	demo_mem[202] = ( (demo_mem[202] > 20) ? 20 : demo_mem[202] )
 	draw_ellipse(28,demo_mem[201],20+20-demo_mem[202],demo_mem[202])	
 
-	if(demo_mem[203])	then if(demo_mem[204] > 14)	then demo_mem[204]-=1 else	demo_mem[203] = 0 end
+	if(demo_mem[203]!=0)	then if(demo_mem[204] > 14)	then demo_mem[204]-=1 else	demo_mem[203] = 0 end
 		else		     if(demo_mem[204] <50)	then demo_mem[204]+=1 else	demo_mem[203] = 1 end
         end
-	demo_mem[205] = ((63 - demo_mem[204]) < demo_mem[204]) ? (63 - demo_mem[204]) : demo_mem[204] 
-	demo_mem[205] = (demo_mem[205] > 20) ? 20 : demo_mem[205] 
+	demo_mem[205] = ( ((63 - demo_mem[204]) < demo_mem[204]) ? (63 - demo_mem[204]) : demo_mem[204] )
+	demo_mem[205] = ( (demo_mem[205] > 20) ? 20 : demo_mem[205] )
 	draw_ellipse(65,demo_mem[204],22+10-demo_mem[205],demo_mem[205])	
 
-	if(demo_mem[206])	then if(demo_mem[207] > 10)	then demo_mem[207]-=1 else	demo_mem[206] = 0 end
+	if(demo_mem[206]!=0)	then if(demo_mem[207] > 10)	then demo_mem[207]-=1 else	demo_mem[206] = 0 end
 		else		     if(demo_mem[207] <54)	then demo_mem[207]+=1 else	demo_mem[206] = 1 end
         end
-	demo_mem[208] = ((63 - demo_mem[207]) < demo_mem[207]) ? (63 - demo_mem[207]) : demo_mem[207] 
-	demo_mem[208] = (demo_mem[208] > 15) ? 15 : demo_mem[208] 
+	demo_mem[208] = ( ((63 - demo_mem[207]) < demo_mem[207]) ? (63 - demo_mem[207]) : demo_mem[207] )
+	demo_mem[208] = ( (demo_mem[208] > 15) ? 15 : demo_mem[208] )
 	draw_ellipse(102,demo_mem[207],15+20-demo_mem[208],demo_mem[208])	
 end
 
@@ -127,8 +127,6 @@ demo_bubbles_init(demo_mem)
 	
 demo_count = 0
 clear_screen
-set_pen_color(1)
-set_font(1)
 
 while true do
 	demo_count+=1

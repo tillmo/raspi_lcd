@@ -99,7 +99,7 @@ static VALUE r_LCD_DrawBitmap(VALUE self, VALUE x0,VALUE y0,VALUE bmp)
 
 static VALUE r_LCD_Init(VALUE self)
 {
-  LCD_Init;
+  LCD_Init();
   return Qnil;
 }
 
