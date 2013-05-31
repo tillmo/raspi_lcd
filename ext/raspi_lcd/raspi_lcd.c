@@ -91,7 +91,7 @@ static VALUE r_LCD_DrawBitmap(VALUE self, VALUE x0,VALUE y0,VALUE bmp)
 
   VALUE str = StringValue(bmp); /* fixme: does this work with uint8? */
   b = RSTRING_PTR(str);
-  LCD_PrintXY(FIX2INT(x0),FIX2INT(y0),b);
+  LCD_DrawBitmap(FIX2INT(x0),FIX2INT(y0),b);
   
   return Qnil;
 }
