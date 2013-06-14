@@ -18,6 +18,7 @@ This gem provides a module RaspiLCD, with the following methods:
       draw_ellipse(xm,ym,a,b)
       draw_rect(x0,y0,x1,y1,line)
       print_xy(x,y,string)
+      print_encoded_xy(x,y,string) # use this one for umlauts etc. Requires ruby > 1.9
       draw_bitmap(x,y,bmp)
 
       init

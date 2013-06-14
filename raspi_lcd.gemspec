@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'raspi_lcd'
-  s.version     = '0.82'
-  s.date        = '2013-05-30'
+  s.version     = '0.84'
+  s.date        = '2013-06-14'
   s.summary     = "Ruby bindings for the Raspberry Pi LCD interface"
   s.description = "Ruby bindings for the Raspberry Pi LCD interface"
   s.authors     = ["Till Mossakowski"]
